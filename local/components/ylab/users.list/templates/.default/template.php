@@ -1,12 +1,14 @@
 <?php
 /**
  * @global \CMain $APPLICATION
- * @var array $arParams
  * @var array $arResult
  */
+
+use Bitrix\Main\Web\Json;
+
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
     die();
 }
 
-//echo json_encode($arResult);
-echo json_encode($this->getComponent()->arResult);
+// Выводит список пользователей
+echo Json::encode($this->getComponent()->arResult);
