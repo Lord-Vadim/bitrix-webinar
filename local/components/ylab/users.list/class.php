@@ -4,12 +4,23 @@ use Bitrix\Iblock\ElementTable;
 use Bitrix\Main\Loader;
 
 /**
- * Класс UsersListComponent выводит список пользователей из инфоблока "Пользователи" (IBLOCK_ID = 1)
+ * Класс UsersListComponent
+ *
+ * выводит список пользователей из инфоблока "Пользователи"
  */
 class UsersListComponent extends CBitrixComponent
 {
     /**
-     * Метод executeComponent вызывается при создании компонента
+     * Статическое свойство IBLOCK_ID
+     *
+     * Задает ID инфоблока со списком пользователей
+     */
+    public static $iIblockID = 1;
+
+    /**
+     * Метод executeComponent
+     *
+     * вызывается при создании компонента
      *
      * @return mixed|void
      */
@@ -29,17 +40,15 @@ class UsersListComponent extends CBitrixComponent
     }
 
     /**
-     * Метод getUsersList возвращает список пользователей из инфоблока Пользователи (IBLOCK_ID = 1)
+     * Метод getUsersList
+     *
+     * возвращает список пользователей из инфоблока Пользователи
      *
      * @return array
      */
     protected function getUsersList()
     {
-        /**
-         * Временный массив для заполнения списка
-         *
-         * @var array
-         */
+        // Временный массив для заполнения списка
         $arTemp = array();
 
         try {
@@ -47,14 +56,14 @@ class UsersListComponent extends CBitrixComponent
             Loader::includeModule('iblock');
 
             // Получает элементы инфоблока (IBLOCK_ID = 1) используя фильтр
-            $Result = ElementTable::getList(
+            $oResult = ElementTable::getList(
                 array(
-                    'filter' => array('IBLOCK_ID' => 1),
+                    'filter' => array('IBLOCK_ID' => self::$iIblockID),
                     'select' => array('ID', 'NAME')
                 ));
 
             // Перебор всех полученных элементов и заполнение массива
-            while ($oElement = $Result->fetch()) {
+            while ($oElement = $oResult->fetch()) {
                 $arTemp[] = array(
                     'ID' => (int)$oElement['ID'],
                     'NAME' => $oElement['NAME']
