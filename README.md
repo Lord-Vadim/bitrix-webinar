@@ -51,6 +51,57 @@
         - Модифицировать метод getUsersList, чтобы данные возвращались из инфоблока Пользователи
         - Расставить phpDoc по классу компонента
         
-        
+4. Полезное
+    Дополнительные файлы в шаблоне:
+        result_midifire.php - выполняется до вывода шаблона позволяя менять данные
+        component_epilog.php - содержимое не кешируется, можно писать скрипты подключать стили и т.д.
+                
 ## Вебинар №2
+
+1. Полезные ссылки:
+    - Composer 
+        - https://getcomposer.org
+        - https://phpprofi.ru/blogs/post/52
+        - https://packagist.org
+    - Валидация данных
+        - http://laravel.su/docs/5.0/validation
+        - https://laravel.ru/docs/v5/validation
+        - https://github.com/ylabio/ylab.validation
+    - Необходимые библиотеки 
+        - https://packagist.org/packages/illuminate/validation
+        - https://packagist.org/packages/robmorgan/phinx
+    - Миграции https://phinx.org
+    
+2. Задание вебинара
+    - Изучить материал полезных ссылок
+    - Поставить себе через композер phinx
+    - Поставить себе через композер illuminate/validation
+    - Написать миграцию по созданию ИБ (phinx)
+        - Расширить информацию о пользователе, новыми свойствами: дата рождения (формат 01.01.1980), номер телефона 
+        (формат +79210000000), свойство список - город (варианты Москва, Санкт-Петербург, Казань) 
+    - Установить git репу https://github.com/ylabio/ylab.validation (можно добавить в свою репу код модуля)
+    - Создать компонент добавления пользователя с валидацией
+        - Имя может содержать любые данные
+        - Все поля компонента обязательны
+        - При успешном сохранении выводим соответствующее сообщение, в противном случае список ошибок
+
+3. Полезное
+    - Composer.phar 
+        - размещается в папке local
+        - Инсталляция в консоли: php composer.phar init
+    - Установка phinx
+        - через composer в консоли: php composer.phar require robmorgan/phinx
+        - Создание миграции: vendor\bin\phinx create Init
+        - Применение миграции: vendor\bin\phinx migrate
+        - Откат миграции: vendor\bin\phinx rollback
+    - Модуль YLab Validation
+        - php composer.phar require illuminate/validation:5.4.*
+        - В файле local/php_interface/init.php
+            - require_once(dirname(\_\_FILE\_\_) . '/../vendor/autoload.php');
+            - Bitrix\Main\Loader::includeModule('ylab.validation');
+        - В папку local/modules склонировать репозиторий модуля
+        - Панели администратора установить модуль: Рабочий стол -> Marketplace -> Установленные решения.
+        - Вставить модуль: <? $APPLICATION->IncludeComponent('ylab:validation.test', '') ?>
+        
+## Вебинар №3
     ...

@@ -8,5 +8,6 @@ global $APPLICATION, $USER;
     <meta charset="utf-8">
     <title><? $APPLICATION->ShowTitle() ?></title>
     <? $APPLICATION->ShowHead() ?>
+    <? $APPLICATION->ShowPanel() ?>
 </head>
 <body>
