@@ -1,0 +1,13 @@
+{
+    "name": "lord-vadim/local",
+    "authors": [
+        {
+            "name": "Vadim Epifanov",
+            "email": "lord.vadim@gmail.com"
+        }
+    ],
+    "require": {
+        "robmorgan/phinx": "^0.10.5",
+        "illuminate/validation": "5.4.*"
+    }
+}
