@@ -1,3 +1,7 @@
 .idea
 /bitrix
 /upload
+/desktop_app
+/urlrewrite.php
+/local/vendor/
+/local/composer.phar
