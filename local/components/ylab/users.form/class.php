@@ -10,9 +10,11 @@
 namespace YLab\Validation\Components;
 
 use Bitrix\Iblock\ElementTable;
+use Bitrix\Main\LoaderException;
 use CIBlock;
 use CIBlockElement;
 use CIBlockPropertyEnum;
+use CIBlockType;
 use CUtil;
 use YLab\Validation\ComponentValidation;
 use YLab\Validation\ValidatorHelper;
@@ -97,6 +99,8 @@ class UsersFormComponent extends ComponentValidation
         // Очищает буфер
         $APPLICATION->RestartBuffer();
 
+//        $this->test();
+
         // Получение iBlockID
         self::$iBlockID = $this->getIBlockID();
 
@@ -138,37 +142,43 @@ class UsersFormComponent extends ComponentValidation
      */
     protected function addUser($arData)
     {
-        $oElement = new CIBlockElement;
+        try {
+            $oElement = new CIBlockElement;
 
-        // Параметры для транслитерации
-        $arParamsTranslit = array("replace_space" => "_", "replace_other" => "_");
+            // Параметры для транслитерации
+            $arParamsTranslit = array("replace_space" => "_", "replace_other" => "_");
 
-        // Данные пользователя
-        $sUserName = $arData['user_name'];
-        $sUserNameUpperCase = mb_strtoupper($arData['user_name']);
-        $sUserNameTranslit = Cutil::translit($arData['user_name'], "ru", $arParamsTranslit);
-        $sUserBirthday = $arData['birthday'];
-        $sUserPhone = $arData['tel'];
-        $sUserCity = (int)$arData['city'];
+            // Данные пользователя
+            $sUserName = $arData['user_name'];
+            $sUserNameUpperCase = mb_strtoupper($arData['user_name']);
+            $sUserNameTranslit = Cutil::translit($arData['user_name'], "ru", $arParamsTranslit);
+            $sUserBirthday = $arData['birthday'];
+            $sUserPhone = $arData['tel'];
+            $sUserCity = (int)$arData['city'];
 
-        // Массив с полями для записи элемента
-        $arFields = Array(
-            'MODIFIED_BY' => $GLOBALS['USER']->GetID(),
-            'IBLOCK_ID' => self::$iBlockID,
-            'NAME' => $sUserName,
-            'CREATED_BY' => $GLOBALS['USER']->GetID(),
-            'SEARCHABLE_CONTENT' => $sUserNameUpperCase,
-            'CODE' => $sUserNameTranslit
-        );
+            // Массив с полями для записи элемента
+            $arFields = Array(
+                'MODIFIED_BY' => $GLOBALS['USER']->GetID(),
+                'IBLOCK_ID' => self::$iBlockID,
+                'NAME' => $sUserName,
+                'CREATED_BY' => $GLOBALS['USER']->GetID(),
+                'SEARCHABLE_CONTENT' => $sUserNameUpperCase,
+                'CODE' => $sUserNameTranslit
+            );
 
-        // Массив со свойствами для записи элемента
-        $arFields["PROPERTY_VALUES"] = Array(
-            'birthday' => $sUserBirthday,
-            'phone' => $sUserPhone,
-            'city' => $sUserCity
-        );
+            // Массив со свойствами для записи элемента
+            $arFields["PROPERTY_VALUES"] = Array(
+                'birthday' => $sUserBirthday,
+                'phone' => $sUserPhone,
+                'city' => $sUserCity
+            );
 
-        $oElementID = $oElement->Add($arFields);
+            $oElementID = $oElement->Add($arFields);
+
+        } catch (\Exception $e) {
+            // Возникла ошибка
+            return array('Exception: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -317,5 +327,32 @@ class UsersFormComponent extends ComponentValidation
         } catch (\Exception $e) {
             return 0;
         }
+    }
+
+    /**
+     * Метод test
+     * Тестовый метод для экспериментов
+     */
+    protected function test()
+    {
+        /** @global \CDatabase $DB */
+        global $DB;
+
+        try {
+            // Подключает модуль для работы с инфоблоками
+            Loader::includeModule('iblock');
+
+            // Если тип инфоблока существует - удалить его
+            if (CIBlockType::GetByID(self::IBLOCK_TYPE_ID)->GetNext()) {
+                $DB->StartTransaction();
+                if (CIBlockType::Delete(self::IBLOCK_TYPE_ID)) {
+                    $DB->Commit();
+                } else {
+                    $DB->Rollback();
+                }
+            }
+        } catch (\Exception $e) {
+        }
+
     }
 }
