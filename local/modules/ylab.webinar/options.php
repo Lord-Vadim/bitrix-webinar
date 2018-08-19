@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Created by PhpStorm.
+ * User: Vadim Epifanov
+ * Date: 16.08.2018
+ * Time: 19:45
+ *
+ * @global \CMain $APPLICATION
+ * @global CUser $USER
+ */
+
 use \Bitrix\Main\Localization\Loc;
 
 $sModuleId = "ylab.webinar";
@@ -7,12 +17,6 @@ CModule::IncludeModule($sModuleId);
 
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"] . BX_ROOT . "/modules/main/options.php");
 IncludeModuleLangFile(__FILE__);
-
-
-/**
- * @global CUser $USER
- * @global CMain $APPLICATION
- **/
 
 if ($USER->IsAdmin()):
     $arAllOptions = [

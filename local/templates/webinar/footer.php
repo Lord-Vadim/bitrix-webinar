@@ -1,4 +1,3 @@
-</body>
 <br>
 <br>
 <hr>
@@ -10,5 +9,9 @@
     <li>
         <h3><a href="\users\form">Вебинар №2</a></h3>
     </li>
+    <li>
+        <h3><a href="\users\final">Вебинар №3</a></h3>
+    </li>
 </ul>
+</body>
 </html>

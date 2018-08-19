@@ -1,12 +1,18 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Vadim Epifanov
+ * Date: 17.08.2018
+ * Time: 12:44
+ */
 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\ModuleManager;
-
-Loc::loadMessages(__FILE__);
+use Bitrix\Main\IO\Directory;
 
 /**
- * Class ylab_webinar
+ * Class ylab_webinar -
+ * модуль позволяет выводить список пользователей и добавлять новых пользователей с использованием ORM
  */
 class ylab_webinar extends CModule
 {
@@ -31,25 +37,36 @@ class ylab_webinar extends CModule
     }
 
     /**
+     * Метод doInstall
      * Установка модуля
+     *
+     * @return mixed|void
      */
     public function doInstall()
     {
         $this->InstallDB();
+        $this->InstallFiles();
         ModuleManager::registerModule($this->MODULE_ID);
     }
 
     /**
+     * Метод doUninstall
      * Удаление модуля
+     *
+     * @return mixed|void
      */
     public function doUninstall()
     {
         $this->UnInstallDB();
+        $this->UnInstallFiles();
         ModuleManager::unRegisterModule($this->MODULE_ID);
     }
 
     /**
+     * Метод InstallDB
      * Создание таблиц модуля
+     *
+     * @return bool|void
      */
     public function InstallDB()
     {
@@ -64,6 +81,7 @@ class ylab_webinar extends CModule
     }
 
     /**
+     * Метод UnInstallDB
      * Удаление таблиц модуля
      */
     public function UnInstallDB()
@@ -76,5 +94,30 @@ class ylab_webinar extends CModule
         if (is_array($oResult)) {
             $APPLICATION->ThrowException(implode("", $oResult));
         }
+    }
+
+    /**
+     * Метод InstallFiles -
+     * устанавливает компоненты модуля.
+     */
+    public function InstallFiles()
+    {
+        CopyDirFiles(
+            __DIR__ . "/components",
+            $_SERVER["DOCUMENT_ROOT"] . "/bitrix/components",
+            true,
+            true
+        );
+    }
+
+    /**
+     * Метод UnInstallFiles -
+     * удаляет компоненты модуля.
+     */
+    public function UnInstallFiles()
+    {
+        Directory::deleteDirectory(
+            $_SERVER["DOCUMENT_ROOT"] . "/bitrix/components/" . $this->MODULE_ID
+        );
     }
 }

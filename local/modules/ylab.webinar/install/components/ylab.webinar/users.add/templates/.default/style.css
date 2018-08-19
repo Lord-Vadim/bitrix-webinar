@@ -1,0 +1,55 @@
+/**
+ * Created by PhpStorm.
+ * User: Vadim Epifanov
+ * Date: 18.08.2018
+ * Time: 17:04
+ */
+
+/* Раздел - Параметры формы */
+
+.form-block div {
+    margin: 10px;
+}
+
+.element-input {
+    width: 170px;
+}
+
+.coment-ok {
+    color: blue;
+}
+
+.coment-error {
+    color: red;
+    font-style: italic;
+}
+
+.select-ok {
+    color: black;
+}
+
+.select-no {
+    color: grey;
+}
+
+.form-btn {
+    margin: 10px 40px;
+}
+
+/* Раздел - Скрытие placeholder когда поле в фокусе */
+
+:focus::-webkit-input-placeholder {
+    color: transparent
+}
+
+:focus::-moz-placeholder {
+    color: transparent
+}
+
+:focus:-moz-placeholder {
+    color: transparent
+}
+
+:focus:-ms-input-placeholder {
+    color: transparent
+}
