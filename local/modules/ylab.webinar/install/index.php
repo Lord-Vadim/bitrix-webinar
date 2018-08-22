@@ -11,8 +11,8 @@ use Bitrix\Main\ModuleManager;
 use Bitrix\Main\IO\Directory;
 
 /**
- * Class ylab_webinar -
- * модуль позволяет выводить список пользователей и добавлять новых пользователей с использованием ORM
+ * Class ylab_webinar
+ * (модуль) позволяет выводить список пользователей и добавлять новых пользователей с использованием ORM.
  */
 class ylab_webinar extends CModule
 {
@@ -38,7 +38,7 @@ class ylab_webinar extends CModule
 
     /**
      * Метод doInstall
-     * Установка модуля
+     * устанавливает модуль.
      *
      * @return mixed|void
      */
@@ -51,7 +51,7 @@ class ylab_webinar extends CModule
 
     /**
      * Метод doUninstall
-     * Удаление модуля
+     * удаляет модуль.
      *
      * @return mixed|void
      */
@@ -64,7 +64,7 @@ class ylab_webinar extends CModule
 
     /**
      * Метод InstallDB
-     * Создание таблиц модуля
+     * создает таблицы модуля.
      *
      * @return bool|void
      */
@@ -82,7 +82,7 @@ class ylab_webinar extends CModule
 
     /**
      * Метод UnInstallDB
-     * Удаление таблиц модуля
+     * удаляет таблицы модуля.
      */
     public function UnInstallDB()
     {
@@ -97,7 +97,7 @@ class ylab_webinar extends CModule
     }
 
     /**
-     * Метод InstallFiles -
+     * Метод InstallFiles
      * устанавливает компоненты модуля.
      */
     public function InstallFiles()
@@ -111,7 +111,7 @@ class ylab_webinar extends CModule
     }
 
     /**
-     * Метод UnInstallFiles -
+     * Метод UnInstallFiles
      * удаляет компоненты модуля.
      */
     public function UnInstallFiles()

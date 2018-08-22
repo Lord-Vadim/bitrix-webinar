@@ -9,22 +9,24 @@
  * @global \CMain $APPLICATION
  */
 
-use Bitrix\Main\Localization\Loc;
+use YLab\Webinar\Helper;
 
 /** @global \CMain $APPLICATION */
 global $APPLICATION;
 
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 
-$APPLICATION->SetTitle(Loc::getMessage('TITLE'));
-
 if (CModule::IncludeModule('ylab.webinar')) { // Если модуль установлен
 
+    $APPLICATION->SetTitle(Helper::getMessage('TITLE'));
 
-    echo '<h2 class="header-3">' . Loc::getMessage('HOMEWORK') . '</h2>';
+    // Заголовок
+    echo Helper::getMessage('HOMEWORK');
     // Подключение компонентов
     $APPLICATION->IncludeComponent('ylab.webinar:users.add', '', []);
     $APPLICATION->IncludeComponent('ylab.webinar:users.show', '', []);
+
+    require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php");
 
 } else { // Если модуль не установлен
 
@@ -41,8 +43,7 @@ if (CModule::IncludeModule('ylab.webinar')) { // Если модуль уста�
 
     } else { // Если ошибка создания объекта модуля ylab.webinar
 
-        echo '<h3>' . Loc::getMessage('ERROR') . '</h3>';
+        // Сообщение об ошибке
+        echo Helper::getMessage('ERROR');
     }
 }
-
-require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php");

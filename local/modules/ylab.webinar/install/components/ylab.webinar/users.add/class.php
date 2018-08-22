@@ -14,7 +14,7 @@ use YLab\Validation\ValidatorHelper;
 use Bitrix\Main\Loader;
 
 /**
- * Класс UsersAddComponent -
+ * Класс UsersAddComponent
  * выводит форму добавления новых пользователей в ORM список с валидацией.
  *
  * @package YLab\Webinar
@@ -22,7 +22,7 @@ use Bitrix\Main\Loader;
 class UsersAddComponent extends ComponentValidation
 {
     /**
-     * Свойство $arResultCity -
+     * Свойство $arResultCity
      * архив c данными для выпадающего списка городов.
      *
      * @var array
@@ -47,7 +47,7 @@ class UsersAddComponent extends ComponentValidation
     }
 
     /**
-     * Метод executeComponent -
+     * Метод executeComponent
      * вызывается при создании компонента.
      *
      * @return mixed|void
@@ -84,7 +84,7 @@ class UsersAddComponent extends ComponentValidation
     }
 
     /**
-     * Метод addUser -
+     * Метод addUser
      * добавляет нового пользователя в список.
      *
      * @param $arData
@@ -100,7 +100,7 @@ class UsersAddComponent extends ComponentValidation
     }
 
     /**
-     * Метод rules -
+     * Метод rules
      * возвращает массив правил валидации.
      *
      * @return array

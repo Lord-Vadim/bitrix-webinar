@@ -8,7 +8,7 @@
  * @var array $arResult
  */
 
-use Bitrix\Main\Localization\Loc;
+use YLab\Webinar\Helper;
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
     die();
@@ -19,11 +19,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 <div class="user-table">
     <table>
         <tr>
-            <th><?= Loc::getMessage('CUSTOM_USER_ID')?></th>
-            <th><?= Loc::getMessage('CUSTOM_USER_NAME')?></th>
-            <th><?= Loc::getMessage('CUSTOM_BIRTHDAY')?></th>
-            <th><?= Loc::getMessage('CUSTOM_PHONE')?></th>
-            <th><?= Loc::getMessage('CUSTOM_CITY')?></th>
+            <th><?= Helper::getMessage('ID')?></th>
+            <th><?= Helper::getMessage('NAME')?></th>
+            <th><?= Helper::getMessage('BIRTHDAY')?></th>
+            <th><?= Helper::getMessage('PHONE')?></th>
+            <th><?= Helper::getMessage('CITY')?></th>
         </tr>
         <? foreach ($arResult as $arItem) { ?>
             <tr>

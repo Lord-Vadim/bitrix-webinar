@@ -16,7 +16,7 @@ use Bitrix\Main\Entity\StringField;
 use Bitrix\Main\Type\Date;
 
 /**
- * Class UsersTable -
+ * Class UsersTable
  * реализует связь с таблицей b_ylab_users.
  *
  * @package YLab\Webinar
@@ -24,8 +24,8 @@ use Bitrix\Main\Type\Date;
 class UsersTable extends DataManager
 {
     /**
-     * Метод getFilePath -
-     * возвращает путь расположения файла
+     * Метод getFilePath
+     * возвращает путь расположения файла.
      *
      * @return string
      */
@@ -35,8 +35,8 @@ class UsersTable extends DataManager
     }
 
     /**
-     * Метод getTableName -
-     * возвращает имя таблицы
+     * Метод getTableName
+     * возвращает имя таблицы.
      *
      * @return string
      */
@@ -46,8 +46,8 @@ class UsersTable extends DataManager
     }
 
     /**
-     * Метод getMap -
-     * возвращает структуру таблицы b_ylab_users
+     * Метод getMap
+     * возвращает структуру таблицы b_ylab_users.
      *
      * @return array|\Bitrix\Main\Entity\public
      * @throws \Exception
@@ -85,8 +85,8 @@ class UsersTable extends DataManager
     }
 
     /**
-     * Метод addUser -
-     * добавляет нового пользователя в b_ylab_users
+     * Метод addUser
+     * добавляет нового пользователя в таблицу b_ylab_users.
      *
      * @param string $sName - Имя пользователя
      * @param string $sBirthday - Дата рождения в формате d.m.Y

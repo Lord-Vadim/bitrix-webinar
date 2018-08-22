@@ -8,8 +8,10 @@
  * Константы для валидации EN
  */
 
-$MESS['CUSTOM_USER_NAME'] = 'Name';
-$MESS['CUSTOM_BIRTHDAY'] = 'Date of Birth';
-$MESS['CUSTOM_TEL'] = 'Phone';
-$MESS['CUSTOM_CITY'] = 'City';
+use YLab\Webinar\Helper;
+
+$MESS['CUSTOM_USER_NAME'] = Helper::getMessage('NAME');
+$MESS['CUSTOM_BIRTHDAY'] = Helper::getMessage('BIRTHDAY');
+$MESS['CUSTOM_TEL'] = Helper::getMessage('PHONE');
+$MESS['CUSTOM_CITY'] = Helper::getMessage('CITY');
 $MESS['YV_DATE_FORMAT'] = 'The ":attribute" does not match the format: dd.mm.yyyy';

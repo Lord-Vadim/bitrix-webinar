@@ -12,7 +12,7 @@ use Bitrix\Main\Loader;
 use CBitrixComponent;
 
 /**
- * Класс UsersShowComponent -
+ * Класс UsersShowComponent
  * выводит список пользователей c помощью ORM.
  *
  * @package YLab\Webinar
@@ -20,7 +20,7 @@ use CBitrixComponent;
 class UsersShowComponent extends CBitrixComponent
 {
     /**
-     * Метод executeComponent -
+     * Метод executeComponent
      * вызывается при создании компонента.
      *
      * @return mixed|void
@@ -35,13 +35,13 @@ class UsersShowComponent extends CBitrixComponent
     }
 
     /**
-     * Метод getUsersList -
+     * Метод getUsersList
      * возвращает список пользователей в виде архива. Формат архива:
-     * - ['ID'] - ID пользователя
-     * - ['NAME'] - Имя пользователя
-     * - ['BIRTHDAY'] - Дата рождения пользователя
-     * - ['PHONE'] - Телефон пользователя
-     * - ['CITY'] - Город проживания пользователя
+     * - [ ]['ID'] - ID пользователя
+     * - [ ]['NAME'] - Имя пользователя
+     * - [ ]['BIRTHDAY'] - Дата рождения пользователя
+     * - [ ]['PHONE'] - Телефон пользователя
+     * - [ ]['CITY'] - Город проживания пользователя
      *
      * @return array
      */

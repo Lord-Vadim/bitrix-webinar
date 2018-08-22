@@ -14,7 +14,7 @@ use Bitrix\Main\Entity\IntegerField;
 use Bitrix\Main\Entity\StringField;
 
 /**
- * Class CityTable -
+ * Class CityTable
  * реализующий связь с таблицей b_ylab_city.
  *
  * @package YLab\Webinar
@@ -65,7 +65,7 @@ class CityTable extends DataManager
     }
 
     /**
-     * Метод getCityByID -
+     * Метод getCityByID
      * возвращает название города по его ID.
      *
      * @param int $iID - ID города
@@ -78,7 +78,7 @@ class CityTable extends DataManager
             if ($oResult) {
                 return $oResult[0]['CITY'];
             } else {
-                return 'Города с ID = ' . $iID . ' нет в таблице.';
+                return 'City ID = ' . $iID . ' is not in the table.';
             }
 
         } catch (\Exception $e) {

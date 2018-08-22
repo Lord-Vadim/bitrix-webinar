@@ -11,6 +11,7 @@
  */
 
 use \Bitrix\Main\Localization\Loc;
+use YLab\Webinar\Helper;
 
 $sModuleId = "ylab.webinar";
 CModule::IncludeModule($sModuleId);
@@ -20,7 +21,7 @@ IncludeModuleLangFile(__FILE__);
 
 if ($USER->IsAdmin()):
     $arAllOptions = [
-        ["ylab_webinar_", Loc::getMessage("YLAB_WEBINAR_"), ["text", 60]]
+        ["ylab_webinar_setting", Helper::getMessage("SETTING"), ["text", 60]]
     ];
 
     $aTabs = [
