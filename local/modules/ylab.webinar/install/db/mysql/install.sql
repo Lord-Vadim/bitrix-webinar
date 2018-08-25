@@ -1,18 +1,18 @@
 CREATE TABLE `b_ylab_users` (
   `ID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `NAME` varchar(255) COLLATE 'utf8_general_ci' NOT NULL,
+  `NAME` varchar(255) COLLATE 'utf8_unicode_ci' NOT NULL,
   `BIRTHDAY` date NOT NULL,
-  `PHONE` varchar(12) COLLATE 'utf8_general_ci' NOT NULL,
+  `PHONE` varchar(12) COLLATE 'utf8_unicode_ci' NOT NULL,
   `CITY` int(11) NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `b_ylab_users`
   ADD KEY `CITY` (`CITY`);
 
 CREATE TABLE `b_ylab_city` (
   `ID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `CITY` varchar(255) COLLATE 'utf8_general_ci' NOT NULL
-);
+  `CITY` varchar(255) COLLATE 'utf8_unicode_ci' NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `b_ylab_users`
   ADD FOREIGN KEY (`CITY`)
