@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Created by PhpStorm.
+ * Created by PhpStorm
  * User: Vadim Epifanov
  * Date: 16.08.2018
  * Time: 19:45
@@ -11,7 +10,6 @@
  */
 
 use \Bitrix\Main\Localization\Loc;
-use YLab\Webinar\Helper;
 
 $sModuleId = "ylab.webinar";
 CModule::IncludeModule($sModuleId);
@@ -21,7 +19,7 @@ IncludeModuleLangFile(__FILE__);
 
 if ($USER->IsAdmin()):
     $arAllOptions = [
-        ["ylab_webinar_setting", Helper::getMessage("SETTING"), ["text", 60]]
+        ["ylab_webinar_setting", Loc::getMessage("SETTING"), ["text", 60]]
     ];
 
     $aTabs = [

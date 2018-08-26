@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
+ * Created by PhpStorm
  * User: Vadim Epifanov
  * Date: 18.08.2018
  * Time: 15:31
@@ -8,7 +8,7 @@
  * @var array $arResult
  */
 
-use YLab\Webinar\Helper;
+use Bitrix\Main\Localization\Loc;
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
     die();
@@ -19,11 +19,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 <div class="user-table">
     <table>
         <tr>
-            <th><?= Helper::getMessage('ID')?></th>
-            <th><?= Helper::getMessage('NAME')?></th>
-            <th><?= Helper::getMessage('BIRTHDAY')?></th>
-            <th><?= Helper::getMessage('PHONE')?></th>
-            <th><?= Helper::getMessage('CITY')?></th>
+            <th><?= Loc::getMessage('ID')?></th>
+            <th><?= Loc::getMessage('NAME')?></th>
+            <th><?= Loc::getMessage('BIRTHDAY')?></th>
+            <th><?= Loc::getMessage('PHONE')?></th>
+            <th><?= Loc::getMessage('CITY')?></th>
         </tr>
         <? foreach ($arResult as $arItem) { ?>
             <tr>

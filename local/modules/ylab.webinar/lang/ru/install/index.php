@@ -1,12 +1,9 @@
 <?php
-
 /**
- * Created by PhpStorm.
+ * Created by PhpStorm
  * User: Vadim Epifanov
  * Date: 17.08.2018
  * Time: 18:37
- *
- * Константы для инсталяции модуля RU
  */
 
 $MESS['MODULE_NAME'] = 'YLab Webinar';

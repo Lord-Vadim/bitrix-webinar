@@ -2,11 +2,10 @@
 /**
  * Created by PhpStorm
  * User: Vadim Epifanov
- * Date: 22.08.2018
- * Time: 08:24
+ * Date: 26.08.2018
+ * Time: 12:48
  */
 
-$MESS['ID'] = 'ID';
 $MESS['NAME'] = 'Имя';
 $MESS['BIRTHDAY'] = 'Дата рождения';
 $MESS['PHONE'] = 'Телефон';
@@ -20,9 +19,3 @@ $MESS['SEND'] = 'Отправить';
 $MESS['PLACEHOLDER_NAME'] = 'Введите имя';
 $MESS['PLACEHOLDER_BIRTHDAY'] = 'дд.мм.гггг';
 $MESS['PLACEHOLDER_PHONE'] = '+7xxxxxxxxxx';
-
-$MESS['HOMEWORK'] = 'Домашнее задание № 3';
-$MESS['ERROR'] = 'Ошибка при подключении модуля "YLab Webinar".';
-$MESS['TITLE'] = 'Вебинар по CMS 1C-Bitrix - ДЗ3 - Список пользователей (ORM)';
-
-$MESS['SETTING'] = 'Настройка';
