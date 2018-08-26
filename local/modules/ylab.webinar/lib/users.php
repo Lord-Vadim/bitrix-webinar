@@ -11,6 +11,7 @@ namespace YLab\Webinar;
 use Bitrix\Main\Entity\DataManager;
 use Bitrix\Main\Entity\DateField;
 use Bitrix\Main\Entity\IntegerField;
+use Bitrix\Main\Entity\ReferenceField;
 use Bitrix\Main\Entity\StringField;
 use Bitrix\Main\Type\Date;
 
@@ -75,9 +76,14 @@ class UsersTable extends DataManager
                     'required' => true
                 ]
             ),
-            new IntegerField('CITY',
+            new IntegerField('CITY_ID',
                 [
                     'required' => true
+                ]
+            ),
+            new ReferenceField('CITY', 'YLab\Webinar\City',
+                [
+                    '=this.CITY_ID' => 'ref.ID'
                 ]
             )
         ];
@@ -101,7 +107,7 @@ class UsersTable extends DataManager
                     'NAME' => $sName,
                     'BIRTHDAY' => new Date($sBirthday, 'd.m.Y'),
                     'PHONE' => $sPhone,
-                    'CITY' => $iCityCode
+                    'CITY_ID' => $iCityCode
                 ]
             );
             if ($oResult->isSuccess()) {

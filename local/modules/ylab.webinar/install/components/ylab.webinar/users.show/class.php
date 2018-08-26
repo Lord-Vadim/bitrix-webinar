@@ -64,7 +64,7 @@ class UsersShowComponent extends CBitrixComponent
                     'NAME' => $oElement['NAME'],
                     'BIRTHDAY' => $oElement['BIRTHDAY']->toString(),
                     'PHONE' => $oElement['PHONE'],
-                    'CITY' => CityTable::getCityByID($oElement['CITY']),
+                    'CITY' => CityTable::getCityByID($oElement['CITY_ID']),
                 ];
             }
 

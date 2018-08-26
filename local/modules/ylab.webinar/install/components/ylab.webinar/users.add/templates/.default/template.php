@@ -75,7 +75,7 @@ CJSCore::Init(array("jquery"));
                         value="<?= $arItem['ID'] ?>"
                     <?= $arItem['ID'] == $arResult['CITY'] ? 'selected' : '' ?>
                 >
-                    <?= $arItem['CITY'] ?>
+                    <?= $arItem['NAME'] ?>
                 </option>
             <? } ?>
         </select>

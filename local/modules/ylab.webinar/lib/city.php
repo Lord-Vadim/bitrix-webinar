@@ -55,7 +55,7 @@ class CityTable extends DataManager
                     'autocomplete' => true
                 ]
             ),
-            new StringField('CITY',
+            new StringField('NAME',
                 [
                     'required' => true
                 ]
@@ -75,7 +75,7 @@ class CityTable extends DataManager
         try {
             $oResult = self::getList(['select' => ['*'], 'filter' => ['=ID' => $iID]])->fetchAll();
             if ($oResult) {
-                return $oResult[0]['CITY'];
+                return $oResult[0]['NAME'];
             } else {
                 return 'City ID = ' . $iID . ' is not in the table.';
             }
