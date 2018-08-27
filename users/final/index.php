@@ -6,6 +6,8 @@
  * Time: 09:47
  *
  * @global \CMain $APPLICATION
+ *
+ * Модуль ylab.webinar подключается автоматически, в админке подключать не обязательно.
  */
 
 use Bitrix\Main\Localization\Loc;
