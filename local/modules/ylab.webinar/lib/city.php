@@ -73,9 +73,9 @@ class CityTable extends DataManager
     public static function getCityByID($iID)
     {
         try {
-            $oResult = self::getList(['select' => ['*'], 'filter' => ['=ID' => $iID]])->fetchAll();
+            $oResult = self::getList(['select' => ['*'], 'filter' => ['=ID' => $iID], 'limit' => 1])->fetch();
             if ($oResult) {
-                return $oResult[0]['NAME'];
+                return $oResult['NAME'];
             } else {
                 return 'City ID = ' . $iID . ' is not in the table.';
             }
