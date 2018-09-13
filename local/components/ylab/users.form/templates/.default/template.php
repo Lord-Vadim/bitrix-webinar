@@ -27,7 +27,8 @@ $this->addExternalCss("/local/styles.css");
 
 ?>
 
-<h3>Форма добавления нового пользователя</h3>
+<h2>Домашнее задание № 2</h2>
+<h3>Форма добавления нового пользователя (инфоблок)</h3>
 <form action="" method="post" class="form form-block">
     <?= bitrix_sessid_post() ?>
     <? if (count($arResult['ERRORS'])): ?>

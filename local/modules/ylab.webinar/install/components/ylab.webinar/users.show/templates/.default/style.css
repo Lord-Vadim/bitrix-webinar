@@ -1,0 +1,38 @@
+/**
+ * Created by PhpStorm.
+ * User: Vadim Epifanov
+ * Date: 18.08.2018
+ * Time: 17:04
+ */
+
+/* Раздел - Параметры таблицы */
+
+.user-table {
+    max-width: 700px;
+    max-height: 300px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.user-table table {
+    color: #333333;
+    width: 100%;
+    border: 1px #a9a9a9;
+    border-collapse: collapse;
+}
+
+.user-table th {
+    background-color: #fffae1;
+    padding: 8px;
+    border: 1px solid #a9a9a9;
+    text-align: left;
+}
+
+.user-table tr {
+    background-color: #ffffff;
+}
+
+.user-table td {
+    padding: 8px;
+    border: 1px solid #a9a9a9;
+}

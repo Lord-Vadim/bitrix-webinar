@@ -8,5 +8,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
     die();
 }
 
-// Выводит список пользователей
-echo var_dump($this->getComponent()->arResult);
+?>
+
+<h2>Домашнее задание № 1</h2>
+<?= var_dump($this->getComponent()->arResult); ?>
